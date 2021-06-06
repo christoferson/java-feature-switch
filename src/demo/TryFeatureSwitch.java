@@ -2,7 +2,18 @@ package demo;
 
 public class TryFeatureSwitch {
 
+	// Supported types char, byte, short, int, Character, Byte, Short, Integer, String, or an enum type
 	public static void main(String[] args) {
+		
+		trySwitchStmtOnByte();
+		
+		trySwitchStmtOnShort();
+		
+		trySwitchStmtOnInteger();
+		
+		trySwitchStmtOnCharacter();
+		
+		trySwitchStmtOnString();
 		
 		trySwitchStmtOnEnum();
 		
@@ -15,7 +26,85 @@ public class TryFeatureSwitch {
 		trySwitchExprYield();
 		
 		trySwitchExprUsingColonWithYield(Season.Spring);
+
+	}
 	
+	private static void trySwitchStmtOnByte() {
+		byte primitive = 5;
+		switch(primitive) {
+			case 2 : System.out.println(primitive * 2); break;
+			case 5 : System.out.println(primitive * 3); break;
+			case 7 : System.out.println(primitive * 4); break;
+			case 9 : System.out.println(primitive * 5); break;
+		}
+		Byte value = primitive;
+		switch(value) {
+			case 2 : System.out.println(value * 2); break;
+			case 5 : System.out.println(value * 3); break;
+			case 7 : System.out.println(value * 4); break;
+			case 9 : System.out.println(value * 5); break;
+		}
+	}
+	
+	private static void trySwitchStmtOnShort() {
+		short primitive = 5;
+		switch(primitive) {
+			case 2 : System.out.println(primitive * 2); break;
+			case 5 : System.out.println(primitive * 3); break;
+			case 7 : System.out.println(primitive * 4); break;
+			case 9 : System.out.println(primitive * 5); break;
+		}
+		Short value = primitive;
+		switch(value) {
+			case 2 : System.out.println(value * 2); break;
+			case 5 : System.out.println(value * 3); break;
+			case 7 : System.out.println(value * 4); break;
+			case 9 : System.out.println(value * 5); break;
+		}
+	}
+	
+	private static void trySwitchStmtOnInteger() {
+		int primitive = 5;
+		switch(primitive) {
+			case 2 : System.out.println(primitive * 2); break;
+			case 5 : System.out.println(primitive * 3); break;
+			case 7 : System.out.println(primitive * 4); break;
+			case 9 : System.out.println(primitive * 5); break;
+		}
+		Integer value = primitive;
+		switch(value) {
+			case 2 : System.out.println(value * 2); break;
+			case 5 : System.out.println(value * 3); break;
+			case 7 : System.out.println(value * 4); break;
+			case 9 : System.out.println(value * 5); break;
+		}
+	}
+	
+	private static void trySwitchStmtOnCharacter() {
+		char primitive = 'C';
+		switch(primitive) {
+			case 'A' : System.out.println(primitive + '2'); break;
+			case 'B' : System.out.println(primitive + '3'); break;
+			case 'C' : System.out.println(primitive + '4'); break;
+			case 'D' : System.out.println(primitive + '5'); break;
+		}
+		Character value = primitive;
+		switch(value) {
+			case 'A' : System.out.println(value  + '2'); break;
+			case 'B' : System.out.println(value  + '3'); break;
+			case 'C' : System.out.println(value  + '4'); break;
+			case 'D' : System.out.println(value  + '5'); break;
+		}
+	}
+	
+	private static void trySwitchStmtOnString() {
+		String value = "C";
+		switch(value) {
+			case "A" : System.out.println(value + "2"); break;
+			case "B" : System.out.println(value + "3"); break;
+			case "C" : System.out.println(value + "4"); break;
+			case "D" : System.out.println(value + "5"); break;
+		}
 	}
 	
 	private static void trySwitchStmtOnEnum() {
