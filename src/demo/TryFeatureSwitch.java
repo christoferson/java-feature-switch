@@ -5,6 +5,12 @@ public class TryFeatureSwitch {
 	// Supported types char, byte, short, int, Character, Byte, Short, Integer, String, or an enum type
 	public static void main(String[] args) {
 		
+		tryTraditionalSwitchStmtThatPrints();
+		
+		tryTraditionalSwitchStmt();
+		
+		tryNewSwitchExpression();
+		
 		trySwitchStmtOnByte();
 		
 		trySwitchStmtOnShort();
@@ -28,6 +34,44 @@ public class TryFeatureSwitch {
 		trySwitchExprUsingColonWithYield(Season.Spring);
 
 	}
+	
+	private static void tryTraditionalSwitchStmtThatPrints() {
+		
+		Suit suit = Suit.Diamonds;
+		switch (suit) {
+			case Spades : System.out.println("♠"); break;
+			case Hearts : System.out.println("♥"); break;
+			case Diamonds : System.out.println("◆"); break;
+			case Clubs : System.out.println("♣"); break;
+		}
+
+	}
+	
+	private static void tryTraditionalSwitchStmt() {
+		
+		Suit suit = Suit.Diamonds;
+		String display = null;
+		switch (suit) {
+			case Spades : display = "♠"; break;
+			case Hearts : display = "♥"; break;
+			case Diamonds : display = "◆"; break;
+			case Clubs : display = "♣"; break;
+		}
+		System.out.println(display);
+	}
+	
+	private static void tryNewSwitchExpression() {
+		
+		Suit suit = Suit.Diamonds;
+		String display = switch (suit) {
+			case Spades -> "♠";
+			case Hearts -> "♥";
+			case Diamonds -> "◆";
+			case Clubs -> "♣";
+		};
+		System.out.println(display);
+	}
+	
 	
 	private static void trySwitchStmtOnByte() {
 		byte primitive = 5;
