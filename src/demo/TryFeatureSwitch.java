@@ -11,6 +11,8 @@ public class TryFeatureSwitch {
 		
 		tryNewSwitchExpression();
 		
+		tryNewSwitchExpressionWithDefault();
+		
 		trySwitchStmtOnByte();
 		
 		trySwitchStmtOnShort();
@@ -68,6 +70,17 @@ public class TryFeatureSwitch {
 			case Hearts -> "♥";
 			case Diamonds -> "◆";
 			case Clubs -> "♣";
+		};
+		System.out.println(display);
+	}
+	
+	private static void tryNewSwitchExpressionWithDefault() {
+		
+		Suit suit = Suit.Diamonds;
+		String display = switch (suit) {
+			case Spades -> "♠";
+			case Hearts -> "♥";
+			default -> throw new IllegalArgumentException();
 		};
 		System.out.println(display);
 	}
@@ -144,10 +157,10 @@ public class TryFeatureSwitch {
 	private static void trySwitchStmtOnString() {
 		String value = "C";
 		switch(value) {
-			case "A" : System.out.println(value + "2"); break;
+			case "ABC" : System.out.println(value + "2"); break;
 			case "B" : System.out.println(value + "3"); break;
 			case "C" : System.out.println(value + "4"); break;
-			case "D" : System.out.println(value + "5"); break;
+			case "XYZ" : System.out.println(value + "5"); break;
 		}
 	}
 	
@@ -174,7 +187,7 @@ public class TryFeatureSwitch {
 	// All expressions must be of the same type
 	private static void trySwitchExprOnEnum() {
 		Season season = Season.Spring;
-		String value = switch(season) {
+		String value = switch(season) { // A Switch expression should cover all possible values
 			case Spring -> "Spring/Summer";
 			case Summer -> "Spring/Summer";
 			case Autumn -> "Autumn/Winter";
@@ -182,6 +195,8 @@ public class TryFeatureSwitch {
 		};
 		System.out.println(value);
 	}
+	
+
 	
 	private static void trySwitchExprWithCommaOnEnum() {
 		Season season = Season.Spring;
