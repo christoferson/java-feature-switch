@@ -12,7 +12,7 @@ public class TryFeatureSwitch {
 		tryNewSwitchExpression();
 		
 		tryNewSwitchExpressionWithDefault();
-		
+
 		trySwitchStmtOnByte();
 		
 		trySwitchStmtOnShort();
@@ -76,7 +76,7 @@ public class TryFeatureSwitch {
 	
 	private static void tryNewSwitchExpressionWithDefault() {
 		
-		Suit suit = Suit.Diamonds;
+		Suit suit = Suit.Hearts;
 		String display = switch (suit) {
 			case Spades -> "♠";
 			case Hearts -> "♥";
@@ -175,9 +175,10 @@ public class TryFeatureSwitch {
 	}
 	
 	private static void trySwitchStmtWithCommmaOnEnum() {
+		System.out.println("TrySwitchStmtWithCommmaOnEnum:");
 		Season season = Season.Spring;
 		switch(season) {
-			case Spring, Summer : System.out.println("Spring/Summer"); break;
+			case Spring, Summer : System.out.println("Spring/Summer"); //break; // Will fall through
 			case Autumn, Winter : System.out.println("Autumn/Winter"); break;
 		}
 	}
@@ -186,6 +187,7 @@ public class TryFeatureSwitch {
 	// There is no fall through
 	// All expressions must be of the same type
 	private static void trySwitchExprOnEnum() {
+		System.out.println("TrySwitchExprOnEnum:");
 		Season season = Season.Spring;
 		String value = switch(season) { // A Switch expression should cover all possible values
 			case Spring -> "Spring/Summer";
@@ -212,6 +214,7 @@ public class TryFeatureSwitch {
 		String value = switch(season) {
 			case Spring -> "Spring!";
 			default -> {
+				//Locale locale = user.getLocale();
 				String description = season.getDescription();
 				yield description.toUpperCase();
 			}
@@ -223,7 +226,7 @@ public class TryFeatureSwitch {
 	private static void trySwitchExprUsingColonWithYield(Season season) {
 		String value = switch(season) {
 			case Spring : yield "Spring!"; // Will not fall through
-			case Summer : yield "Summer!";
+			case Summer : yield "Summer!"; // Will not fall through
 			default : {
 				String description = season.getDescription();
 				yield description.toUpperCase();
@@ -231,5 +234,5 @@ public class TryFeatureSwitch {
 		};
 		System.out.println(value);
 	}
-	
+
 }
